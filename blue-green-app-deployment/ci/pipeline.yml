@@ -5,16 +5,22 @@ groups:
   - deploy-app
   - load-tests
   - promote-new-version
+- name: test
+  jobs:
+  - load-tests
+  - promote-new-version
 
 resources:
 - name: concourse-pipeline-samples
   type: git
-  source:
+  source: 
+    interval: 5m
     branch: master
-    uri: https://github.com/lxyoutlook/concourse-pipeline-samples.git
+    uri: https://github.com/king-kt/concourse-pipeline-samples.git
 - name: PWS
   type: cf
-  source:
+  source: 
+    interval: 5m
     api: {{pws-api}}
     organization: {{pws-organization}}
     username: {{deploy-username}}
