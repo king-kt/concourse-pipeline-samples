@@ -5,7 +5,7 @@ groups:
   - deploy-app
   - load-tests
   - promote-new-version
-- name: test
+- name: load-tests
   jobs:
   - load-tests
   - promote-new-version
